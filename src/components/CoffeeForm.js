@@ -39,6 +39,12 @@ const CoffeeForm = () => {
       nonFat: false,
       skim: false,
     },
+    additions: {
+        noFoam: false,
+        cinnamon: false,
+        whippedCream: false,
+        caramelDrizzle: false,
+    }
   });
 
   // handle changes in each input area
@@ -52,7 +58,7 @@ const CoffeeForm = () => {
 
   return (
     <CoffeeForm>
-      <form>
+      <form onSubmit={handleSubmit}>
         <h3>Coffee Form</h3>
         <label htmlFor="name">
           Name:
@@ -104,13 +110,7 @@ const CoffeeForm = () => {
         </label>
         <label htmlFor="temp">
           Temperature:
-          <select
-            id="temp"
-            name="temp"
-            data-cy="temp"
-            defaultValue="Hot"
-            onChange={handleChange}
-          >
+          <select id="temp" name="temp" data-cy="temp" defaultValue="Hot" onChange={handleChange}>
             <option data-cy="hot" value="hot">
               Hot
             </option>
@@ -148,55 +148,55 @@ const CoffeeForm = () => {
             </option>
           </select>
         </label>
-        <label>
+        <label htmlFor="additions" name='additions'>
           Additions
-          <label htmlFor="checked">
+          <label htmlFor="noFoam">
             <input
               type="checkbox"
               name="noFoam"
               data-cy="noFoam"
-              id="checked"
+              id="noFoam"
               value="noFoam"
               onChange={handleChange}
             />
             No Foam
           </label>
-          <label htmlFor="checked">
+          <label htmlFor="cinnamon">
             <input
               type="checkbox"
               name="cinnamon"
               data-cy="cinnamon"
-              id="checked"
+              id="cinnamon"
               value="cinnamon"
               onChange={handleChange}
             />
             Cinnamon
           </label>
-          <label htmlFor="checked">
+          <label htmlFor="whippedCream">
             <input
               type="checkbox"
               name="whippedCream"
               data-cy="whippedCream"
-              id="checked"
+              id="whippedCream"
               value="whippedCream"
               onChange={handleChange}
             />
             Whipped Cream
           </label>
-          <label htmlFor="checked">
+          <label htmlFor="caramelDrizzle">
             <input
               type="checkbox"
               name="caramelDrizzle"
               data-cy="caramelDrizzle"
-              id="checked"
+              id="caramelDrizzle"
               value="caramelDrizzle"
               onChange={handleChange}
             />
             Caramel Drizzle
           </label>
         </label>
-        <label htmlFor="">
-          <textarea />
+        <label htmlFor="instructions"> Special Instructions
+          <textarea id='instructions' name='instructions' data-cy='instructions' placeHolder="Type here..." onChange={handleChange} />
         </label>
         <button type="submit">Order Now</button>
       </form>
