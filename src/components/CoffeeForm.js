@@ -12,7 +12,7 @@ const CoffeeDiv = styled.div`
   margin: 2% 15% 15% 30%;
   border-radius: 10px;
   overflow: hidden;
-`;
+`
 
 const CoffeeForm = () => {
   // setting State
@@ -44,17 +44,25 @@ const CoffeeForm = () => {
         cinnamon: false,
         whippedCream: false,
         caramelDrizzle: false,
-    }
+    },
+    instructions: '',
   });
 
   // handle changes in each input area
   const handleChange = (e) => {
+      console.log("handleChange" , handleChange)
     setFormState({
       ...formState,
       [e.target.name]:
         e.target.type === "checkbox" ? e.target.checked : e.target.value,
     });
   };
+
+  //onSubmitForm
+  const handleSubmit = (e) => {
+      e.preventDefault()
+      console.log("handleSubmit", handleSubmit)
+  }
 
   return (
     <CoffeeForm>
